@@ -844,6 +844,7 @@
     ══════════════════════ */
     @media (max-width: 768px) {
       section { padding: 52px 18px; }
+      #hero { padding-top: 56px; }
 
       .section-img { height: 220px; }
 
@@ -903,7 +904,7 @@
         <li>Just a real plan that actually fits your life</li>
       </ul>
       <div style="margin-top:8px;">
-        <a href="#" class="btn" style="font-size:1rem; padding:16px 36px;">👉 Join The FUPA Slayer Membership Now</a>
+        <button onclick="openWaitlist()" class="btn" style="font-size:1rem; padding:16px 36px; border:none; cursor:pointer;">👉 Join the Waitlist</button>
         <span class="btn-sub dark" style="margin-top:10px;">Founding Member Rate — $37/month · Cancel Anytime</span>
       </div>
     </div>
@@ -1006,8 +1007,8 @@
       </div>
     </div>
     <div class="btn-wrap">
-      <a href="#" class="btn">👉 Join The FUPA Slayer Membership Now</a>
-      <span class="btn-sub dark">$37/month Founding Rate · Instant Access</span>
+      <button onclick="openWaitlist()" class="btn" style="border:none; cursor:pointer;">👉 Join the Waitlist</button>
+      <span class="btn-sub dark">Founding Member Rate — $37/month · Cancel Anytime</span>
     </div>
   </div>
 </section>
@@ -1098,8 +1099,8 @@
       </li>
     </ul>
     <div class="btn-wrap">
-      <a href="#" class="btn">👉 Join The FUPA Slayer Membership Now</a>
-      <span class="btn-sub dark">Founding Member Rate · $37/month</span>
+      <button onclick="openWaitlist()" class="btn" style="border:none; cursor:pointer;">👉 Join the Waitlist</button>
+      <span class="btn-sub dark">Founding Member Rate — $37/month · Cancel Anytime</span>
     </div>
   </div>
 </section>
@@ -1278,8 +1279,8 @@
       </div>
     </div>
     <div class="btn-wrap">
-      <a href="#" class="btn">👉 Join The FUPA Slayer Membership Now</a>
-      <span class="btn-sub dark">Founding Member Rate — $37/month</span>
+      <button onclick="openWaitlist()" class="btn" style="border:none; cursor:pointer;">👉 Join the Waitlist</button>
+      <span class="btn-sub dark">Founding Member Rate — $37/month · Cancel Anytime</span>
     </div>
   </div>
 </section>
@@ -1367,8 +1368,8 @@
       <strong style="color:var(--text);">it pays for itself.</strong>
     </p>
     <div class="btn-wrap">
-      <a href="#" class="btn" style="font-size:1.05rem; padding:18px 48px;">👉 Join The FUPA Slayer Membership Now</a>
-      <span class="btn-sub dark">$37/month · Cancel Anytime · Instant Access</span>
+      <button onclick="openWaitlist()" class="btn" style="font-size:1.05rem; padding:18px 48px; border:none; cursor:pointer;">👉 Join the Waitlist</button>
+      <span class="btn-sub dark">Founding Member Rate — $37/month · Cancel Anytime</span>
     </div>
   </div>
 </section>
@@ -1428,17 +1429,17 @@
       loading="lazy"
       src="Images/transformation-mirror.png"
       alt="Woman celebrating her transformation"
-      style="width:100%;max-width:860px;border-radius:14px;display:block;margin:0 auto 40px;object-fit:cover;height:340px;box-shadow:0 4px 32px rgba(0,0,0,0.25);"
+      style="width:100%;max-width:860px;border-radius:14px;display:block;margin:0 auto 40px;object-fit:cover;object-position:top;height:480px;box-shadow:0 4px 32px rgba(0,0,0,0.25);"
     />
     <span class="section-label" style="color:rgba(255,255,255,0.7);">This Is Your Moment</span>
     <h2>Ready to Finally Fix This?</h2>
     <p>Join women who stopped guessing and started seeing real results.</p>
     <p>The system is here. The support is here. You just have to take the first step.</p>
     <div class="btn-wrap" style="margin-top:28px;">
-      <a href="#" class="btn btn-outline" style="font-size:1.08rem; padding:20px 52px;">
-        👉 Join The FUPA Slayer Membership Now
-      </a>
-      <span class="btn-sub">$37/month Founding Member Rate · Instant Access · Cancel Anytime</span>
+      <button onclick="openWaitlist()" class="btn btn-outline" style="font-size:1.08rem; padding:20px 52px; border:2px solid #fff; cursor:pointer;">
+        👉 Join the Waitlist
+      </button>
+      <span class="btn-sub">Founding Member Rate — $37/month · Cancel Anytime</span>
     </div>
   </div>
 </section>
@@ -1459,8 +1460,49 @@
 
 <!-- STICKY MOBILE BAR -->
 <div class="sticky-bar" id="sticky-bar">
-  <a href="#">👉 Join Now — $37/month Founding Rate</a>
+  <button onclick="openWaitlist()" style="background:none; border:none; color:#fff; font-weight:700; font-size:inherit; cursor:pointer; padding:0;">👉 Join the Waitlist — It's Free</button>
 </div>
+
+<!-- WAITLIST MODAL -->
+<div id="waitlist-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#fff; border-radius:16px; max-width:460px; width:100%; padding:40px 36px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+    <button onclick="closeWaitlist()" style="position:absolute; top:14px; right:18px; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#999; line-height:1;">&times;</button>
+    <div style="text-align:center; margin-bottom:24px;">
+      <img src="Images/fupalogo.png" alt="FUPA Slayer" style="max-width:180px; width:100%; margin:0 auto 12px; display:block;" />
+      <h3 style="font-size:1.4rem; font-weight:800; color:#1a1a1a; margin-bottom:6px;">Join the Waitlist</h3>
+      <p style="color:#666; font-size:0.95rem;">Be the first to know when we launch — and lock in your founding member rate.</p>
+    </div>
+    <form onsubmit="submitWaitlist(event)" style="display:flex; flex-direction:column; gap:14px;">
+      <input type="text" id="wl-name" placeholder="First Name" required style="padding:14px 16px; border:1.5px solid #ddd; border-radius:8px; font-size:1rem; outline:none; font-family:inherit;" />
+      <input type="email" id="wl-email" placeholder="Email Address" required style="padding:14px 16px; border:1.5px solid #ddd; border-radius:8px; font-size:1rem; outline:none; font-family:inherit;" />
+      <input type="tel" id="wl-phone" placeholder="Phone Number" style="padding:14px 16px; border:1.5px solid #ddd; border-radius:8px; font-size:1rem; outline:none; font-family:inherit;" />
+      <button type="submit" style="background:#D32F2F; color:#fff; border:none; border-radius:8px; padding:16px; font-size:1.05rem; font-weight:800; cursor:pointer; font-family:inherit; margin-top:4px;">👉 Save My Spot</button>
+    </form>
+    <p id="wl-success" style="display:none; text-align:center; color:#2e7d32; font-weight:700; margin-top:16px;">You're on the list! We'll be in touch soon. 🎉</p>
+    <p style="text-align:center; font-size:0.78rem; color:#999; margin-top:14px;">No spam. Ever. Unsubscribe anytime.</p>
+  </div>
+</div>
+
+<script>
+  function openWaitlist() {
+    var m = document.getElementById('waitlist-modal');
+    m.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeWaitlist() {
+    var m = document.getElementById('waitlist-modal');
+    m.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  function submitWaitlist(e) {
+    e.preventDefault();
+    document.getElementById('wl-success').style.display = 'block';
+    e.target.style.display = 'none';
+  }
+  document.getElementById('waitlist-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeWaitlist();
+  });
+</script>
 
 <script>
   (function () {
