@@ -1436,9 +1436,24 @@
 </footer>
 
 <!-- STICKY MOBILE BAR -->
-<div class="sticky-bar">
+<div class="sticky-bar" id="sticky-bar">
   <a href="#">👉 Join Now — $37/month Founding Rate</a>
 </div>
+
+<script>
+  (function () {
+    var bar = document.getElementById('sticky-bar');
+    var hero = document.getElementById('hero');
+    function check() {
+      if (hero.getBoundingClientRect().bottom < 0) {
+        bar.style.display = 'block';
+      } else {
+        bar.style.display = 'none';
+      }
+    }
+    window.addEventListener('scroll', check, { passive: true });
+  })();
+</script>
 
 </body>
 </html>
