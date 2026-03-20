@@ -570,26 +570,41 @@
     /* ══════════════════════
        RESULTS GALLERY
     ══════════════════════ */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 18px;
+    .results-ticker-wrap {
+      overflow: hidden;
       margin-top: 32px;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .results-ticker {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: ticker-scroll 30s linear infinite;
+    }
+
+    .results-ticker:hover { animation-play-state: paused; }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .result-img {
-      width: 100%;
+      width: 260px;
       height: 310px;
       object-fit: cover;
       border-radius: 10px;
       border: 3px solid var(--gold);
       box-shadow: 0 4px 16px var(--gold-glow);
       display: block;
+      flex-shrink: 0;
       transition: transform 0.22s, box-shadow 0.22s;
     }
 
     .result-img:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
       box-shadow: 0 6px 28px rgba(212,175,55,0.5);
     }
 
@@ -871,7 +886,7 @@
     }
 
     @media (max-width: 480px) {
-      .results-grid { grid-template-columns: 1fr; }
+      .result-img { width: 200px; height: 240px; }
     }
   </style>
 </head>
@@ -905,7 +920,7 @@
       </ul>
       <div style="margin-top:8px;">
         <button onclick="openWaitlist()" class="btn" style="font-size:1rem; padding:16px 36px; border:none; cursor:pointer;">👉 Join the Waitlist</button>
-        <span class="btn-sub dark" style="margin-top:10px;">Founding Member Rate — $37/month · Cancel Anytime</span>
+        <span class="btn-sub dark" style="margin-top:10px;">Founding Member Rate — $37/month · Price goes to $47 when we hit 100 members</span>
       </div>
     </div>
   </div>
@@ -971,11 +986,11 @@
     <div class="divider left"></div>
     <div class="card">
       <ul>
-        <li>They don't know what actually works</li>
-        <li>They're doing random workouts with no plan</li>
-        <li>They don't have accountability</li>
-        <li>They're trying to do everything alone</li>
-        <li>So every time life gets busy — everything falls apart</li>
+        <li>You don't know what actually works for your body</li>
+        <li>You're doing random workouts with no real plan</li>
+        <li>You don't have anyone holding you accountable</li>
+        <li>You're trying to do this alone</li>
+        <li>So every time life gets busy — you fall off</li>
       </ul>
     </div>
   </div>
@@ -1008,7 +1023,7 @@
     </div>
     <div class="btn-wrap">
       <button onclick="openWaitlist()" class="btn" style="border:none; cursor:pointer;">👉 Join the Waitlist</button>
-      <span class="btn-sub dark">Founding Member Rate — $37/month · Cancel Anytime</span>
+      <span class="btn-sub dark">Founding Member Rate — $37/month · Price goes to $47 when we hit 100 members</span>
     </div>
   </div>
 </section>
@@ -1100,7 +1115,7 @@
     </ul>
     <div class="btn-wrap">
       <button onclick="openWaitlist()" class="btn" style="border:none; cursor:pointer;">👉 Join the Waitlist</button>
-      <span class="btn-sub dark">Founding Member Rate — $37/month · Cancel Anytime</span>
+      <span class="btn-sub dark">Founding Member Rate — $37/month · Price goes to $47 when we hit 100 members</span>
     </div>
   </div>
 </section>
@@ -1280,7 +1295,7 @@
     </div>
     <div class="btn-wrap">
       <button onclick="openWaitlist()" class="btn" style="border:none; cursor:pointer;">👉 Join the Waitlist</button>
-      <span class="btn-sub dark">Founding Member Rate — $37/month · Cancel Anytime</span>
+      <span class="btn-sub dark">Founding Member Rate — $37/month · Price goes to $47 when we hit 100 members</span>
     </div>
   </div>
 </section>
@@ -1293,16 +1308,29 @@
     <span class="section-label">Real Women. Real Results.</span>
     <h2>Women Following This System Have Been Losing That Stubborn FUPA</h2>
     <div class="divider left"></div>
-    <div class="results-grid">
-      <img class="result-img" src="Images/IMG_0408.JPEG" alt="Client transformation" />
-      <img class="result-img" src="Images/IMG_0409.JPEG" alt="Client transformation" />
-      <img class="result-img" src="Images/IMG_0415.JPEG" alt="Client transformation" />
-      <img class="result-img" src="Images/IMG_0418.JPEG" alt="Client transformation" />
-      <img class="result-img" src="Images/IMG_1496.JPG"  alt="Client transformation" />
-      <img class="result-img" src="Images/IMG_6101.JPG"  alt="Client transformation" />
-      <img class="result-img" src="Images/IMG_7717.JPG"  alt="Client transformation" />
-      <img class="result-img" src="Images/IMG_0336.PNG"  alt="Client transformation" />
-      <img class="result-img" src="Images/clareessa.jpg" alt="Client transformation" />
+    <div class="results-ticker-wrap">
+      <div class="results-ticker">
+        <!-- original set -->
+        <img class="result-img" src="Images/IMG_0408.JPEG" alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_0409.JPEG" alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_0415.JPEG" alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_0418.JPEG" alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_1496.JPG"  alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_6101.JPG"  alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_7717.JPG"  alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_0336.PNG"  alt="Client transformation" />
+        <img class="result-img" src="Images/clareessa.jpg" alt="Client transformation" />
+        <!-- duplicate set for seamless loop -->
+        <img class="result-img" src="Images/IMG_0408.JPEG" alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_0409.JPEG" alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_0415.JPEG" alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_0418.JPEG" alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_1496.JPG"  alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_6101.JPG"  alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_7717.JPG"  alt="Client transformation" />
+        <img class="result-img" src="Images/IMG_0336.PNG"  alt="Client transformation" />
+        <img class="result-img" src="Images/clareessa.jpg" alt="Client transformation" />
+      </div>
     </div>
     <p style="margin-top:20px; color:var(--muted); font-size:0.84rem; text-align:center;">
       Results vary. When you follow the plan — it works.
@@ -1369,7 +1397,7 @@
     </p>
     <div class="btn-wrap">
       <button onclick="openWaitlist()" class="btn" style="font-size:1.05rem; padding:18px 48px; border:none; cursor:pointer;">👉 Join the Waitlist</button>
-      <span class="btn-sub dark">Founding Member Rate — $37/month · Cancel Anytime</span>
+      <span class="btn-sub dark">Founding Member Rate — $37/month · Price goes to $47 when we hit 100 members</span>
     </div>
   </div>
 </section>
@@ -1412,10 +1440,13 @@
     <h2>A Year From Now…</h2>
     <div class="divider"></div>
     <p style="font-size:clamp(1rem,2.2vw,1.2rem); max-width:580px; margin:0 auto 14px;">
-      You can either still be frustrated — still starting over.
+      A year from now, you'll either still be starting over — still avoiding the mirror, still frustrated with that one area that won't change.
+    </p>
+    <p style="font-size:clamp(1rem,2.2vw,1.2rem); max-width:580px; margin:0 auto 14px;">
+      Or you'll be the woman who finally figured it out. Who stopped guessing. Who looks in the mirror and actually likes what she sees.
     </p>
     <p style="font-size:clamp(1rem,2.2vw,1.2rem); max-width:580px; margin:0 auto; font-weight:700; color:var(--text);">
-      Or you can finally have this handled.
+      The only difference is whether you take the first step today.
     </p>
   </div>
 </section>
@@ -1432,14 +1463,14 @@
       style="width:100%;max-width:860px;border-radius:14px;display:block;margin:0 auto 40px;object-fit:cover;object-position:top;height:480px;box-shadow:0 4px 32px rgba(0,0,0,0.25);"
     />
     <span class="section-label" style="color:rgba(255,255,255,0.7);">This Is Your Moment</span>
-    <h2>Ready to Finally Fix This?</h2>
-    <p>Join women who stopped guessing and started seeing real results.</p>
-    <p>The system is here. The support is here. You just have to take the first step.</p>
+    <h2>You've Been Waiting Long Enough.</h2>
+    <p>You don't need another program to scroll past. You need a system that works — and a coach who's going to hold you to it.</p>
+    <p>This is that. Join the waitlist today and lock in your founding rate before we open the doors.</p>
     <div class="btn-wrap" style="margin-top:28px;">
       <button onclick="openWaitlist()" class="btn btn-outline" style="font-size:1.08rem; padding:20px 52px; border:2px solid #fff; cursor:pointer;">
         👉 Join the Waitlist
       </button>
-      <span class="btn-sub">Founding Member Rate — $37/month · Cancel Anytime</span>
+      <span class="btn-sub">Founding Member Rate — $37/month · Price goes to $47 when we hit 100 members</span>
     </div>
   </div>
 </section>
