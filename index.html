@@ -584,7 +584,6 @@
       animation: ticker-scroll 30s linear infinite;
     }
 
-    .results-ticker:hover { animation-play-state: paused; }
 
     @keyframes ticker-scroll {
       0%   { transform: translateX(0); }
@@ -860,6 +859,10 @@
     @media (max-width: 768px) {
       section { padding: 52px 18px; }
       #hero { padding-top: 56px; }
+
+      h2 { text-align: center; }
+      .section-label { text-align: center; display: block; }
+      .divider.left { margin-left: auto; }
 
       .section-img { height: 220px; }
 
